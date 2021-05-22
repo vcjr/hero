@@ -1,0 +1,81 @@
+<div class="hero-main">
+  <h1>{{ section.settings.hero_title_text }}</h1>
+  <p>{{ section.settings.hero_copy_text }}</p>
+  <button>{{ section.settings.hero_button_text }}</button>
+</div>
+
+{% schema %}
+{
+  "name": "Hero with text and button",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "color",
+      "id": "cta_color",
+      "label": "Color Picker",
+      "default": "#000",
+      "info": "Pick the color for your call to action button"
+    },
+    {
+      "type": "select",
+      "id": "hero_text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "group": "hero_text_alignment",
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "group": "hero_text_alignment",
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "group": "hero_text_alignment",
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center",
+      "info": "text"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_text",
+      "label": "Title",
+      "default": "Hero Title",
+      "info": "text"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_copy_text",
+      "label": "Copy",
+      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione fugit nostrum assumenda et asperiores, quaerat odio omnis, delectus deserunt voluptas excepturi provident repellendus perspiciatis dignissimos doloribus alias sed ea quo",
+      "info": "Here we put the information for your copy"
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "CTA Text",
+      "default": "READ MORE",
+      "info": "cta info"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_url",
+      "label": "CTA URL",
+      "info": "CTA Destination"
+    }
+  ]
+}
+{% endschema %}

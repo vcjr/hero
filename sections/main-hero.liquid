@@ -1,8 +1,34 @@
-<div class="hero-main">
-  <h1>{{ section.settings.hero_title_text }}</h1>
-  <p>{{ section.settings.hero_copy_text }}</p>
-  <button>{{ section.settings.hero_button_text }}</button>
+<div class="hero-main hero-alignment-{{ section.settings.hero_text_alignment }}">
+  <div class="hero-container">
+    <h1 class="hero-main-title">{{ section.settings.hero_title_text }}</h1>
+    <p class="hero-main-copy">{{ section.settings.hero_copy_text }}</p>
+    <a href="{{ section.settings.hero_cta_url }}" class="button hero-main-cta">{{ section.settings.hero_cta_text }}</a>
+  </div>
 </div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+  .hero-main {
+    position: relative;
+    background: url('{{ section.settings.hero_image_mobile | img_url: 'master' }}') no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  @media only screen and (min-width: 665px) {
+    .hero-main {
+      position: relative;
+      background: url('{{ section.settings.hero_image | img_url: 'master' }}') no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 500px;
+    }
+  }
+
+</style>
 
 {% schema %}
 {
@@ -60,19 +86,19 @@
       "type": "textarea",
       "id": "hero_copy_text",
       "label": "Copy",
-      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione fugit nostrum assumenda et asperiores, quaerat odio omnis, delectus deserunt voluptas excepturi provident repellendus perspiciatis dignissimos doloribus alias sed ea quo",
+      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione fugit nostrum assumenda et asperiores",
       "info": "Here we put the information for your copy"
     },
     {
       "type": "text",
-      "id": "hero_button_text",
+      "id": "hero_cta_text",
       "label": "CTA Text",
       "default": "READ MORE",
       "info": "cta info"
     },
     {
       "type": "url",
-      "id": "hero_button_url",
+      "id": "hero_cta_url",
       "label": "CTA URL",
       "info": "CTA Destination"
     }
